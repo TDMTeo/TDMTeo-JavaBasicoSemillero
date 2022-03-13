@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "cc91a5b6-7e7c-487d-b65c-8137261d74bc",
+		"name": "Semillero",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registrar usuarios por rol (Cliente, Hacedor)",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"perPriNombre\":\"Primer Nombre\",\r\n    \"perSegNombre\":\"Segundo Nombre\",\r\n    \"perPriApellido:\":\"Primer Apellido\",\r\n    \"perSegApellido:\":\"Segundo Apellido\",\r\n    \"perCorreo\":\"prueba@correo.com\",\r\n    \"perContra\":\"password\",\r\n    \"rol\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Persona/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Persona",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar los detalles del perfil hacedor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"habVrEsperado\":3500,\r\n    \"habRangoViaje\":\"Medellin\",\r\n    \"tarea\":1,\r\n    \"persona\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Habilidad/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Habilidad",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar los detalles del perfil hacedor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Habilidad/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Habilidad",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar servicios que se pueden solicitar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tarea/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tarea",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar solicitud de un servicio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serVrBase\":3500,\r\n    \"serDistancia\":\"asdqwe\",\r\n    \"oferente\":2,\r\n    \"hacedor\":null,\r\n    \"estado\":1,\r\n    \"tarea\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/servicio/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicio",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar solicitudes de servicios para las que un hacedor cumple las condiciones",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/servicio/solicitudes?persona=9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicio",
+						"solicitudes"
+					],
+					"query": [
+						{
+							"key": "persona",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aceptar y rechazar solicitudes de servicios",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"hacedor\":11\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/servicio/aceptar/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicio",
+						"aceptar",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar detalle de un servicio aceptado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/servicio/servicios/aceptados?serCodServicio=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicio",
+						"servicios",
+						"aceptados"
+					],
+					"query": [
+						{
+							"key": "serCodServicio",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

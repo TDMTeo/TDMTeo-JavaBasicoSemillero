@@ -18,4 +18,8 @@ public class HabilidadService {
     public List<HabilidadEntity> getAllHabilidad(){
         return habilidadRepository.findAll();
     }
+
+    public HabilidadEntity createHabilidad(HabilidadEntity habilidad){
+        return habilidadRepository.save(habilidad);
+    }
 }

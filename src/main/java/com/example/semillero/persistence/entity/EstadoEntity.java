@@ -6,6 +6,7 @@ import java.util.List;
 @Entity
 @Table(name="estado")
 public class EstadoEntity {
+    public EstadoEntity(){}
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Est_Cod_Estado")
@@ -13,12 +14,6 @@ public class EstadoEntity {
 
     @Column(name = "Est_Nombre")
     private String estNombre;
-
-
-    @OneToMany(mappedBy = "estado")
-    @JsonManagedReference
-    private List<ServicioEntity> servicio;
-    public EstadoEntity(){}
 
     public EstadoEntity(Long estCodEstado){
         this.estCodEstado = estCodEstado;
@@ -40,20 +35,4 @@ public class EstadoEntity {
         this.estNombre = estNombre;
     }
 
-    public List<ServicioEntity> getServicio(){
-        return servicio;
-    }
-
-    public void setServicio(List<ServicioEntity> servicio){
-        this.servicio = servicio;
-    }
-
-    @Override
-    public String toString(){
-        return "EstadoEntity{" +
-                "estCodEstado=" + estCodEstado +
-                ", estNombre='" + estNombre + '\'' +
-                ", servicio=" + servicio +
-                '}';
-    }
 }

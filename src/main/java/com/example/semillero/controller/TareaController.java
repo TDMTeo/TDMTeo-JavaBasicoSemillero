@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/servicios_para_solicitar")
+@RequestMapping("/tarea")
 public class TareaController {
 
     private TareaService tareaService;

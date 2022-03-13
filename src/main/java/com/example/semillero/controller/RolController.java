@@ -26,7 +26,7 @@ public class RolController {
         return rolService.getAllRol();
     }
 
-    @PostMapping(value = "/",consumes = {"application/xml","application/json"})
+    @PostMapping("/")
     public ResponseEntity<RolEntity> createRol(@RequestBody RolEntity rol){
         return new ResponseEntity<>(rolService.createRol(rol), HttpStatus.CREATED);
     }

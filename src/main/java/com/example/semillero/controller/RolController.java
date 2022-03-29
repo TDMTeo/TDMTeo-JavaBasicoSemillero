@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/rol")
+@CrossOrigin("*")
 public class RolController {
 
     private RolService rolService;
